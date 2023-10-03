@@ -58,6 +58,10 @@ ul {
   background-color: burlywood;
 }
 
+.nb-selected {
+  background-color: aqua;
+}
+
 .nbStack {
   background-color: aqua;
   margin-left: 2rem;
