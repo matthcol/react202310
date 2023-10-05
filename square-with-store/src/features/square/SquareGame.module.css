@@ -1,0 +1,97 @@
+.square {
+    background: #fff;
+    color: black;
+    border: 1px solid #999;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+  }
+
+  .boardRow:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+  .game {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: row wrap;
+  }
+
+  .hintOk {
+    background: springgreen;
+  }
+  
+  .hintKo {
+    background: violet;
+  }
+  
+  .hintBlank {
+    background: lightgrey;
+  }
+
+  .game {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: row wrap;
+  }
+  
+  @media (max-width: 40em) {
+    .game {
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
+  }
+  
+  .statusPlaying,
+  .statusWin,
+  .statusLoose {
+    margin-bottom: 1rem;
+    padding: 5px 0 5px 0;
+    width: 7rem;
+    text-align: center;
+  }
+  
+  .statusPlaying {
+    background-color: skyblue;
+  }
+  
+  .statusWin {
+    background-color: forestgreen;
+    color: lightyellow;
+  }
+  
+  .statusLoose {
+    background-color: red;
+    color: yellow;
+  }
+
+  .nb,
+.nb-selected {
+  flex-basis: 20%;
+}
+
+.nb {
+  background-color: burlywood;
+}
+
+.nbSelected {
+  background-color: aqua;
+}
+
+.nbStack {
+  background-color: slategray;
+  margin-left: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 25rem;
+}
+  
