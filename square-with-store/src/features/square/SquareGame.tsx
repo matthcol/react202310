@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { changeSize, loadSquare, selectNumbers, selectSize, selectSquares } from "./squareSlice"
 import styles from "./SquareGame.module.css"
+import { useAddNewSquareMutation } from "../../api/squareApiSlice";
 
 function Square({
     value,
@@ -24,40 +25,40 @@ function Square({
     return <div className={squareClass}>{valueDisplayed}</div>;
   }
   
-  function Board() {
-    const squares = useAppSelector(selectSquares);
-    const showHint = false;
-    console.log(squares);
-    return (
-      <div>
+function Board() {
+const squares = useAppSelector(selectSquares);
+const showHint = false;
+console.log(squares);
+return (
+    <div>
         {showHint && (
-          <div className={styles.boardRow}>
+            <div className={styles.boardRow}>
             {[...squares.keys()].map((j) => (
-              <Square key={`blank_${j}`} value={0} blank={true} />
+                <Square key={`blank_${j}`} value={0} blank={true} />
             ))}
             <Square key="hint_diag1" value={0} hintOk={false} />
-          </div>
+            </div>
         )}
         {squares.map((row, i) => (
-          <div key={i} className="board-row">
+            <div key={i} className="board-row">
             {row.map((n, j) => {
-              const myKey = `${i}_${j}`;
-              return <Square key={myKey} value={n} />;
+                const myKey = `${i}_${j}`;
+                return <Square key={myKey} value={n} />;
             })}
             {showHint && <Square key={`hint_row${i}`} value={0} hintOk={false} />}
-          </div>
+            </div>
         ))}
         {showHint && (
-          <div className={styles.boardRow}>
+            <div className={styles.boardRow}>
             {[...squares.keys()].map((j) => (
-              <Square key={`hint_col${j}`} value={0} hintOk={false} />
+                <Square key={`hint_col${j}`} value={0} hintOk={false} />
             ))}
             <Square key="hint_diag2" value={0} hintOk={false} />
-          </div>
+            </div>
         )}
-      </div>
+    </div>
     );
-  }
+}
   
 function Numbers(){
     const numbers = useAppSelector(selectNumbers);
@@ -76,6 +77,7 @@ function Numbers(){
       </div>
     );
 }
+
 
 export function SquareGame() {
     // const size = useAppSelector((state) => state.square.size) 
