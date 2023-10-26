@@ -5,13 +5,14 @@ import { Square } from '../features/square/square'
 export const squareApi = createApi({
     reducerPath: 'squareApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3004/squares' }),
+    tagTypes: ['Squares'],
     endpoints: (builder) => ({
       getSquareById: builder.query<Square, number>({
         query: (id) => `${id}`,
       }),
       getSquareAll: builder.query<Square[],void>({
         query: () => '',
-        // providesTags: ['Square'],
+        // providesTags: ['Squares'],
       }),
       addNewSquare: builder.mutation<Square, Partial<Square>>({
         query: (payload: Partial<Square>) => ({
@@ -22,7 +23,7 @@ export const squareApi = createApi({
             'Content-type': 'application/json; charset=UTF-8',
           },
         }),
-        // invalidatesTags: ['Square'],
+        // invalidatesTags: ['Squares'],
       }),
     }),
   })

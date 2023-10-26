@@ -54,6 +54,11 @@ ul {
   background-color: blanchedalmond;
 }
 
+.nb,
+.nb-selected {
+  flex-basis: 20%;
+}
+
 .nb {
   background-color: burlywood;
 }
@@ -63,8 +68,11 @@ ul {
 }
 
 .nbStack {
-  background-color: aqua;
+  background-color: slategray;
   margin-left: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 25rem;
 }
 
 .square {
@@ -82,6 +90,18 @@ ul {
   width: 34px;
 }
 
+.hint-ok {
+  background: springgreen;
+}
+
+.hint-ko {
+  background: violet;
+}
+
+.hint-blank {
+  background: lightgrey;
+}
+
 .board-row:after {
   clear: both;
   content: "";
@@ -90,4 +110,23 @@ ul {
 
 .game {
   display: flex;
+  flex-wrap: row wrap;
+}
+
+@media (max-width: 40em) {
+  .game {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+}
+.status-playing {
+  background-color: skyblue;
+}
+
+.status-win {
+  background-color: forestgreen;
+}
+
+.status-loose {
+  background-color: red;
 }
